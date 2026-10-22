@@ -1,0 +1,135 @@
+/* Gregory Papp - Student Showcase 2
+   Shared site-wide styles for all four pages. */
+:root {
+    --purple: #292044;
+    --purple-light: #58358a;
+    --coral: #ff6b6b;
+    --yellow: #ffd166;
+    --mint: #06d6a0;
+    --paper: #fffaf5;
+    --ink: #27233a;
+    --muted: #625c70;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+}
+p { max-width: 75ch; }
+a { color: #59338a; }
+a:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+.site-header {
+    padding: 1.5rem 5%;
+    color: white;
+    background: linear-gradient(120deg, var(--purple), var(--purple-light));
+}
+.site-header h1 { margin: 0; line-height: 1.25; }
+.tagline { margin: 0.5rem 0 0; color: #f3eaff; }
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 1rem 0 0;
+    list-style: none;
+}
+.nav-list a {
+    display: block;
+    padding: 0.55rem 0.85rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.nav-list a:hover, .nav-list a:focus-visible, .nav-list a[aria-current="page"] {
+    color: var(--purple);
+    background: var(--yellow);
+}
+.nav-list a:hover { transform: translateY(-2px); }
+nav li { font-weight: bold; }
+#main-content { width: min(1100px, 90%); margin: 0 auto; }
+.hero, .about-layout {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 0;
+}
+.hero-copy { flex: 1; }
+.hero h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; }
+.profile-image {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border: 4px solid white;
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 28px rgba(41, 32, 68, 0.18);
+}
+.eyebrow { color: #7040a5; font-weight: bold; text-transform: uppercase; letter-spacing: 0.08em; }
+.content-section { padding: 1.5rem 0; }
+.content-section h2 { line-height: 1.25; }
+.card-list { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.interest-card {
+    flex: 1 1 220px;
+    padding: 1.25rem;
+    background: white;
+    border-top: 5px solid var(--coral);
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px rgba(41, 32, 68, 0.1);
+}
+.interest-card:nth-child(2) { border-top-color: var(--yellow); }
+.interest-card:nth-child(3) { border-top-color: var(--mint); }
+.button-link {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    color: var(--purple);
+    background: var(--yellow);
+    border-radius: 0.6rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 180ms ease;
+}
+.button-link:hover, .button-link:focus-visible { background: var(--mint); }
+.callout {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #f0e7ff, #fff0e9);
+}
+.skill-list { padding-left: 1.4rem; }
+.skill-list li { margin: 0.55rem 0; }
+.contact-panel {
+    max-width: 650px;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border-left: 5px solid var(--mint);
+    border-radius: 0.8rem;
+    box-shadow: 0 5px 16px rgba(41, 32, 68, 0.08);
+}
+.contact-panel p { margin: 0.35rem 0; overflow-wrap: anywhere; }
+.contact-note { color: var(--muted); font-size: 0.9rem; }
+.site-footer {
+    margin-top: 2rem;
+    padding: 1.5rem 5%;
+    text-align: center;
+    color: white;
+    background: var(--purple);
+}
+.site-footer p { margin: 0 auto; }
+@media (max-width: 650px) {
+    .hero, .about-layout { flex-direction: column; align-items: flex-start; }
+    .profile-image { max-width: 100%; }
+    .site-header { padding: 1.25rem 5%; }
+    .nav-list { gap: 0.3rem; }
+    .nav-list a { padding: 0.5rem 0.65rem; }
+    .content-section { padding: 1rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
